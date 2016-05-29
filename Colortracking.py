@@ -20,14 +20,14 @@ cv2.namedWindow('tracking')
 
 # Creating track bar for min and max for hue, saturation and value
 # You can adjust the defaults as you like
-cv2.createTrackbar('hmin', 'HueComp',12,179,nothing)
-cv2.createTrackbar('hmax', 'HueComp',37,179,nothing)
+cv2.createTrackbar('hmin', 'HueComp',0,179,nothing)
+cv2.createTrackbar('hmax', 'HueComp',179,179,nothing)
 
-cv2.createTrackbar('smin', 'SatComp',96,255,nothing)
+cv2.createTrackbar('smin', 'SatComp',0,255,nothing)
 cv2.createTrackbar('smax', 'SatComp',255,255,nothing)
 
-cv2.createTrackbar('vmin', 'ValComp',186,255,nothing)
-cv2.createTrackbar('vmax', 'ValComp',255,255,nothing)
+cv2.createTrackbar('vmin', 'ValComp',0,255,nothing)
+cv2.createTrackbar('vmax', 'ValComp',30,255,nothing)
 
 # My experimental values
 # hmn = 12
