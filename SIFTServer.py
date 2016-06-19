@@ -14,7 +14,8 @@ targetFoundCount = 0
 searchRounds = 0
 centr = np.matrix('248;343') #Centre of Pi Camera Box
 
-IP_ADDR = '192.168.0.100'
+#IP_ADDR = '192.168.0.100' #Home WiFi
+IP_ADDR = '169.254.154.9' #Ethernet
 PORT = 5000
 BUFFER_SIZE = 100000
 
@@ -150,9 +151,14 @@ while True:
 				estCent[0][0] = (estCent[0][0]/curMaxVote)
 				estCent[0][1] = (estCent[0][1]/curMaxVote)
 				print 'CENTER FOUND AT: ' + str(estCent)
+
 				centres.append(estCent)
+			
 		if cv2.waitKey(1) & 0xFF == ord('q'):	
 			break
 		if estCent[0][0] <> 0 or estCent[0][1] <> 0:
 			targetFoundCount = targetFoundCount + 1
+		#Send Centre to Raspberry Pi
+		conn.send(';' + str(estCent[0][0]) + ',' + str(estCent[0][1]))
+			
 conn.close()
